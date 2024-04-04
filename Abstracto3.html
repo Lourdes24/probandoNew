@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstracto3</title>
+</head>
+
+<body>
+    <!-- Desarrolla una clase abstracta Notificacion que tenga un método abstracto enviar(). 
+Esta clase servirá como base para diferentes tipos de notificaciones. 
+Crea tres clases derivadas: NotificacionEmail, NotificacionSMS, y NotificacionApp. 
+Cada una de estas clases debe implementar el método enviar(), mostrando un 
+mensaje que indique el tipo de notificación enviada y a quién. 
+Por ejemplo, el método enviar() en NotificacionEmail debe imprimir 
+"Enviando email a [direccion] con el mensaje [mensaje]". -->
+    <script>
+ 
+        class Notificacion {
+            constructor(destinatario, mensaje) {
+                this.destinatario = destinatario;
+                this.mensaje = mensaje;
+            }
+            enviar() {
+                throw new Error("Método debe ser implementado por las clases hijas");
+            }
+        }
+
+
+        class NotificacionEmail extends Notificacion {
+            constructor(destinatario, mensaje) {
+                super(destinatario, mensaje);
+            }
+            enviar() {
+                console.log(`Enviando email a ${this.destinatario} con el mensaje "${this.mensaje}"`);
+            }
+        }
+
+
+        class NotificacionSMS extends Notificacion {
+            constructor(destinatario, mensaje) {
+                super(destinatario, mensaje);
+            }
+            enviar() {
+                console.log(`Enviando SMS a ${this.destinatario} con el mensaje "${this.mensaje}"`);
+            }
+        }
+
+
+        class NotificacionApp extends Notificacion {
+            constructor(destinatario, mensaje) {
+                super(destinatario, mensaje);
+            }
+            enviar() {
+                console.log(`Enviando notificación de aplicación a ${this.destinatario} con el mensaje "${this.mensaje}"`);
+            }
+        }
+
+
+        const notificacionEmail = new NotificacionEmail("usuario@example.com", "Hola, probando mail");
+        const notificacionSMS = new NotificacionSMS("123", "¡Recibiste un mensaje!");
+        const notificacionApp = new NotificacionApp("Usuario", "Tienes una nueva actualización.");
+
+        notificacionEmail.enviar();
+        notificacionSMS.enviar();
+        notificacionApp.enviar();
+    </script>
+    
+</body>
+
+</html>
