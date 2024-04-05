@@ -2,4 +2,4 @@ segundo txt prueba
 
 añado nueva línea
 
-se realiza cambio en la primera rama creada 
+el cambio ahora se realiza en la segunda rama
